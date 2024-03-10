@@ -1,0 +1,163 @@
+<app-navbar></app-navbar>
+<section class="h-30" style="background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);">
+    <div class="container py-5 h-30">
+        <div class="row d-flex justify-content-center align-items-center h-30">
+            <div class="col col-xl-10">
+                <div class="card" style="border-radius: 0;">
+                    <div class="row g-0">
+                       
+
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+                                <form [formGroup]="employeeForm" (ngSubmit)="addUser()">
+                                    
+
+                                    <h1 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">REGISTRATION
+                                    </h1>
+
+
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input class="form-control" formControlName="name" placeholder="Enter your Name"
+                                            id="name" />
+
+                                        <div
+                                            *ngIf="employeeForm.controls['name'].invalid && employeeForm.controls['name'].touched">
+
+                                            <div class="field-error-message"
+                                                *ngIf="employeeForm.controls['name'].hasError('required')">
+                                                Name is mandatory
+                                            </div>
+                                            <div class="field-error-message"
+                                                *ngIf="employeeForm.controls['name'].dirty && employeeForm.controls['name'].hasError('namePatternError')">
+                                                Name Pattern is invalid
+                                            </div>
+                                        </div>
+                                    </div><br>
+
+                                    <div class="form-group">
+                                        <label for="email">EMail ID</label>
+                                        <input class="form-control" formControlName="email"
+                                            placeholder="Enter your EMail ID" id="email" />
+                                        <div
+                                            *ngIf="employeeForm.controls['email'].invalid && employeeForm.controls['email'].touched">
+
+                                            <div class="field-error-message"
+                                                *ngIf="employeeForm.controls['email'].hasError('required')">
+                                                EMail ID is mandatory
+                                            </div>
+                                            <div class="field-error-message"
+                                                *ngIf="employeeForm.controls['email'].dirty && employeeForm.controls['email'].hasError('emailIdPatternError')">
+                                                EMail ID Pattern is invalid
+                                            </div>
+                                        </div>
+                                    </div><br>
+
+                                    <div class="form-group">
+                                        <label for="phoneNumber">Phone Number</label>
+                                        <input class="form-control" formControlName="phoneNumber"
+                                            placeholder="Enter your Phone Number" id="phoneNumber" />
+                                        <div
+                                            *ngIf="employeeForm.controls['phoneNumber'].invalid && employeeForm.controls['phoneNumber'].touched">
+
+                                            <div class="field-error-message"
+                                                *ngIf="employeeForm.controls['phoneNumber'].hasError('required')">
+                                                Phone Number is mandatory
+                                            </div>
+                                            <div class="field-error-message"
+                                                *ngIf="employeeForm.controls['phoneNumber'].dirty && employeeForm.controls['phoneNumber'].hasError('phoneNumberError')">
+                                                Phone Number Pattern is invalid
+                                            </div>
+                                        </div>
+                                    </div><br>
+
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" formControlName="password"
+                                            placeholder="Enter your Password" id="password" />
+                                        <div
+                                            *ngIf="employeeForm.controls['password'].invalid && employeeForm.controls['password'].touched">
+
+                                            <div class="field-error-message"
+                                                *ngIf="employeeForm.controls['password'].hasError('required')">
+                                                Password is mandatory
+                                            </div>
+                                            <div class="field-error-message"
+                                                *ngIf="employeeForm.controls['password'].dirty">
+                                                Password is invalid
+                                            </div>
+                                        </div>
+                                    </div><br>
+                                    <div class="form-group">
+                                        <label for="age">Age</label>
+                                        <input type="number" class="form-control" formControlName="age"
+                                            placeholder="Enter your age" id="age" />
+                                        <div
+                                            *ngIf="employeeForm.controls['age'].invalid && employeeForm.controls['age'].touched">
+
+                                            <div class="field-error-message"
+                                                *ngIf="employeeForm.controls['age'].hasError('required')">
+                                                Age is mandatory
+                                            </div>
+                                        </div>
+                                    </div><br>
+                                    <div class="form-group">
+                                        <label for="gender">Gender</label>
+                                        <select class="form-control" id="gender" formControlName="gender">
+                                            <option value="">Select gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                        
+                                    </div>
+                                    <span *ngIf="employeeForm.controls['gender'].dirty && employeeForm.hasError('required','gender')" class="text-danger">*Gender is Required</span><br>
+                                    <div class="mb-3">.
+                                        <label for="exampleInputPassword1" class="form-label">Designation</label>
+                                        <select type="text" formControlName="role" class="form-control" placeholder="Click to choose" id="exampleInputPassword1" >
+                                            <!-- <option value="choose" >Click to Choose</option> -->
+                                            <option value=""></option>
+                                            <option value="Systems Engineer">Systems Engineer</option>
+                                            <option value="Technology analyst">Technology Analyst</option>
+                                            <option value="Consultant">Consultant</option>
+                                            <option value="Project Manager">Project Manager</option>
+                                            <option value="Delivery Manager">Delivery Manager</option>
+                                        </select>
+                                    </div>
+                                    <span *ngIf="employeeForm.controls['role'].dirty && employeeForm.hasError('required','role')" class="text-danger">*Designation is Required</span>
+                    
+
+                                   
+
+                                   
+
+
+
+                                    <div class="row">
+                                        <button [disabled]="!employeeForm.valid"
+                                            class="col-md-4 offset-md-1 btn btn-success" style="margin-left: 15px">
+                                            Register
+                                        </button>
+                                        <button type="reset" [disabled]="employeeForm.pristine"
+                                            class="col-md-4 offset-md-2 btn btn-primary" style="margin-left: 20px">
+                                            Reset
+                                        </button>
+
+                                    </div>
+                                </form>
+                                <div *ngIf="showSuccessMessage" class="success-message">
+                                    Employee added successfully!
+                                </div>
+                                <br />
+                                <h3 class="text-info">Are you want to see details? <a routerLink="../employeedetails">click here</a>
+                                </h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
