@@ -1,7 +1,7 @@
 .navbar-custom {
-    background-color: #008080; /* Dark Cyan */
+    background-color: #008080;
   }
   .navbar-custom .navbar-brand,
   .navbar-custom .navbar-nav .nav-link {
-    color: #ffffff; /* White */
+    color: #ffffff; 
   }

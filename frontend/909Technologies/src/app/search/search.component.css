@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to bottom, #ff6e7f, #bfe9ff); /* Gradient colors */
+    background: linear-gradient(to bottom, #ff6e7f, #bfe9ff);
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,7 +9,7 @@ body {
   }
 
   .result {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    background-color: rgba(255, 255, 255, 0.8); 
     padding: 20px;
     border-radius: 10px;
   }

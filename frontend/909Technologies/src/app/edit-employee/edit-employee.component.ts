@@ -38,27 +38,21 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     });
   }
   fetchEmployeeDetails(id: any) {
-    // Assuming you have a service to fetch employee details by ID
-    // Replace this with your actual service method call
     this.editService.getEmployeeById(id).subscribe(data => {
         this.employeeForm.patchValue(data); 
-    // Patch employee data to form
       });
-      // Add more properties as needed
     };
     saveEmployee() {
         if (this.employeeForm.valid) {
           const updatedEmployeeData = this.employeeForm.value;
-          const employeeId = this.employeeId // Assuming employee object has an 'id' property
+          const employeeId = this.employeeId 
           this.editService.editEmployee(employeeId, updatedEmployeeData).subscribe(
             
             response => {
               console.log('Employee updated successfully:', response);
-              // Handle success, e.g., show a success message to the user
             },
             error => {
-            //   console.error('Error updating employee:', error);
-              // Handle error, e.g., show an error message to the user
+              console.log('Error occur');
             }
           );
         } else {
